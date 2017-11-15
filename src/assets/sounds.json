@@ -1,0 +1,23 @@
+{
+  "error": "error.mp3",
+  "en": {
+    "one": {
+      "left": "left_one_en.mp3",
+      "right": "right_one_en.mp3"
+    },
+    "two": {
+      "left": "left_en.mp3",
+      "right": "right_en.mp3"
+    }
+  },
+  "ru": {
+    "one": {
+      "left": "left_one_ru.mp3",
+      "right": "right_one_ru.mp3"
+    },
+    "two": {
+      "left": "left_ru.mp3",
+      "right": "right_ru.mp3"
+    }
+  }
+}

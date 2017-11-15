@@ -1,0 +1,18 @@
+{
+  "chooseLevel": ["Choose level", "Выбери уровень"],
+  "startIt": ["Start it", "Поехали"],
+  "left": ["Left", "Левый"],
+  "right": ["Right", "Правый"],
+  "start": ["Start", "Начать"],
+  "cancel": ["Cancel", "Отмена"],
+  "goodJob": [
+    "Good job! Now you can rest.",
+    "Хорошая работа! Теперь можно отдохнуть."
+  ],
+  "popupText": [
+    "Click on the rectangle, which I'll call you.",
+    "Кликай по прямоугольнику, который я буду называть."
+  ],
+  "popupOk": ["Start!", "Начать!"],
+  "popupCancel": ["Cancel", "Отмена"]
+}

@@ -1,0 +1,342 @@
+$blackColor: #333;
+$primaryColor: #3fcbff;
+$secondaryColor: #ff0000;
+$whiteColor: #fff;
+$freeSpace: 15px;
+$headerHeight: 60px;
+$footerHeight: 60px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+.link {
+  color: darken($primaryColor, 15%);
+  text-decoration: none;
+  border-bottom: 1px solid darken($primaryColor, 15%);
+  cursor: pointer;
+
+  &:hover {
+    color: darken($primaryColor, 5%);
+  }
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+body {
+  font: 16px 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  color: $blackColor;
+  padding-top: $headerHeight;
+  padding-bottom: $footerHeight;
+  background-color: $whiteColor;
+}
+
+#root {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  position: relative;
+  z-index: 999;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $freeSpace;
+  background-color: lighten($blackColor, 2%);
+  background: linear-gradient(
+    to bottom,
+    lighten($blackColor, 4%) 0%,
+    lighten($blackColor, 2%) 44%,
+    $blackColor 100%
+  );
+  position: fixed;
+  height: $headerHeight;
+  width: 100%;
+  top: 0;
+  color: $whiteColor;
+  filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr=#{lighten($blackColor, 4%)},
+      endColorstr=#{$blackColor},
+      GradientType=0
+    );
+
+  .logo {
+    font-size: 20px;
+    span {
+      color: $primaryColor;
+    }
+  }
+  .timer {
+    font-size: 22px;
+    color: darken($secondaryColor, 6%);
+  }
+
+  .right {
+    display: flex;
+
+    .levels,
+    .start {
+      display: flex;
+      align-items: center;
+      margin-right: $freeSpace;
+      svg {
+        font-size: 40px;
+        cursor: pointer;
+        transition: color 0.1s ease-out;
+      }
+
+      .active {
+        color: $primaryColor;
+      }
+      p {
+        margin-right: 10px;
+        font-size: 16px;
+      }
+    }
+
+    .start {
+      margin-right: 0;
+    }
+  }
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+
+  .right.selected,
+  .left.selected {
+    //background-color: lighten($secondaryColor, 48%);
+    // box-shadow: 0px 0px 30px 0px rgba($secondaryColor, 0.2);
+    border-color: darken($secondaryColor, 15%);
+    color: darken($secondaryColor, 15%);
+  }
+
+  .left,
+  .right {
+    width: 50%;
+    margin: $freeSpace;
+    border: 1px solid $primaryColor;
+    border-radius: 10px;
+    background-color: $whiteColor;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.1s ease-out;
+
+    p {
+      font-size: 10vmin;
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      background-color: $primaryColor;
+      box-shadow: 0px 0px 30px 0px rgba($primaryColor, 0.7);
+      border-color: $primaryColor;
+    }
+    &:active {
+      background-color: darken($primaryColor, 7%);
+    }
+  }
+
+  .left {
+    margin-right: 0;
+  }
+  .right {
+    // margin-left: 2px;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: $footerHeight;
+  width: 100%;
+  border-top: 1px solid $primaryColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $freeSpace;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+
+    .email {
+    }
+    .readme {
+      margin-left: 30px;
+      color: $secondaryColor;
+      border-color: $secondaryColor;
+    }
+  }
+
+  .right {
+    display: flex;
+  }
+
+  .ya-share2 {
+    margin-right: 50px;
+    .ya-share2__link {
+      border-bottom: 0;
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    li {
+      margin-left: $freeSpace;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.screen {
+  background-color: $secondaryColor;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.screen.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+// popup
+.popup {
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .inner {
+    position: fixed;
+    left: 30%;
+    right: 30%;
+    top: 35%;
+    bottom: 35%;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    padding: $freeSpace;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $primaryColor;
+      border-radius: 10px;
+      padding: $freeSpace;
+    }
+
+    .text {
+      color: $blackColor;
+      font-size: 30px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        padding: 10px 15px;
+        font-size: 16px;
+        border: 1px solid $primaryColor;
+        border-radius: 9px;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+        cursor: pointer;
+        margin-bottom: -16px;
+        margin-left: -16px;
+        background-color: $whiteColor;
+      }
+      .ok {
+        background-color: $primaryColor;
+        margin-right: -16px;
+        border-top-left-radius: 9px;
+        border-bottom-right-radius: 9px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-device-width: 700px) {
+  .header {
+    .logo {
+      font-size: 16px;
+    }
+    .timer {
+      font-size: 22px;
+    }
+    .right {
+      .levels,
+      .start {
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+  .footer {
+    .left {
+      .email {
+        display: none;
+      }
+      .readme {
+        margin-left: 0;
+      }
+    }
+    .ya-share2 {
+      display: none;
+    }
+  }
+
+  .popup {
+    .inner {
+      left: 5%;
+      right: 5%;
+      top: 5%;
+      bottom: 5%;
+      border-radius: 10px;
+    }
+  }
+}
