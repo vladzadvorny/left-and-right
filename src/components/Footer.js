@@ -13,8 +13,8 @@ class Footer extends Component {
       <div className="footer">
         <div className="left">
           <p>
-            <a className="email" href="mailto:vladzadvorny@icloud.com">
-              vladzadvorny@icloud.com
+            <a className="email" href="mailto:vladzadvorny@outlook.com">
+              vladzadvorny@outlook.com
             </a>
             <a
               className="readme"
