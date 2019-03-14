@@ -38,4 +38,4 @@ If you want to increase your reaction speed, you can start from the second level
 
 Если вы хотите только увеличить скорость реакции, то начать можно со второго уровня.
 
-© Vlad Zadvorny <vladzadvorny@icloud.com>, MIT
+© Vlad Zadvorny <vladzadvorny@outlook.com>, MIT
